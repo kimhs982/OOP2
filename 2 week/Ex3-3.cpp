@@ -10,7 +10,7 @@ using std::getline;
 class GradeBook {
 public:
 	void displayMessage(string courseName) {
-		cout << "Welcome to the grade book for\n" << courseName << "!" << endl;
+		cout << "Welcome to the grade book for " << courseName << "!" << endl;
 	}
 };
 

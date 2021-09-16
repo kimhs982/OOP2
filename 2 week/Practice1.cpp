@@ -6,30 +6,38 @@ using std::endl;
 class Calculator
 {
 public:
-	Calculator(void)
+	Calculator(double class_num1, double class_num2)
 	{
-		cout << "Please enter a formula :\n";
+		setNumber(class_num1, class_num2);
 	}
 
-	double add(double num1, double num2)
+	void setNumber(double class_num1, double class_num2)
+	{
+		num1 = class_num1;
+		num2 = class_num2;
+	}
+
+	double add()
 	{
 		return num1 + num2;
 	}
 
-	double sub(double num1, double num2)
+	double sub()
 	{
 		return num1 - num2;
 	}
 
-	double mul(double num1, double num2)
+	double mul()
 	{
 		return num1 * num2;
 	}
 
-	double div(double num1, double num2)
+	double div()
 	{
 		return num1 / num2;
 	}
+private:
+	double num1, num2;
 };
 
 int main(void)
@@ -37,25 +45,28 @@ int main(void)
 	double input_num1, input_num2, result;
 	char oper;
 
-	Calculator doCalculation;
+	cout << "Please enter a formula :\n";
 
 	cin >> input_num1;
 	cin >> oper;
 	cin >> input_num2;
+
+	Calculator doCalculation(input_num1, input_num2);
 	
+	// switch문에서 break를 사용하지 않으면 여러가지 경우가 중복 실행된다!!
 	switch (oper)
 	{
 	case '+':
-		result = doCalculation.add(input_num1, input_num2);
+		result = doCalculation.add();
 		break;
 	case '-':
-		result = doCalculation.sub(input_num1, input_num2);
+		result = doCalculation.sub();
 		break;
 	case '*':
-		result = doCalculation.mul(input_num1, input_num2);
+		result = doCalculation.mul();
 		break;
 	case '/':
-		result = doCalculation.div(input_num1, input_num2);
+		result = doCalculation.div();
 		break;
 	default:
 		cout << "올바른 연산자를 입력하세요!" << endl;
